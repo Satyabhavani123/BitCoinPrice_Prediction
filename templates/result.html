@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        /* Keyframes for text animation */
+        @keyframes textAnimation {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Keyframes for button animation */
+        @keyframes buttonAnimation {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        img {
+            height: 880px;
+            width: 100%; /* Set background image width to 100% */
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Ensure the image is behind other content */
+        }
+
+        .container {
+            position: relative; /* Ensure the container is positioned relative to the image */
+            text-align: left; /* Align content to the left */
+            color: white;
+            padding-top: 300px; /* Adjust the top padding to position content correctly */
+        }
+
+        .first-txt, .info {
+            color: white;
+            font-size: 1.5em; /* Smaller font size */
+            animation: textAnimation 1s ease forwards; /* Apply text animation */
+        }
+
+        .info {
+            margin-top: 10px; /* Adjust margin for the info text */
+        }
+        /* FontAwesome icon */
+        .fa-info-circle {
+            margin-right: 10px;
+        }
+        #graph {
+            background-color: rgba(59, 222, 240, 0.801);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            animation: buttonAnimation 1s ease forwards; /* Apply button animation */
+        }
+
+        #graph {
+            margin-top: 10px; /* Adjust margin for the second button */
+        }
+
+        #graph:hover {
+            background-color: rgba(59, 222, 240, 0.9);
+        }
+
+    </style>
+</head>
+
+<body>
+    <img src="{{url_for('static', filename='bit4.jpg')}}" alt="Background Image">
+    <div class="container">
+    <h1>Prediction Result</h1>
+    <h1 class="first-txt">The predicted price is: <br><br>{{ data }}</h1>
+    <p class="info"><i class="fa fa-info-circle"></i> The above prediction is having an error rate of {{ error }}</p>
+    <form method="POST" action="{{ url_for('graph') }}">
+        <input type="hidden" name="df" value="{{ df }}">
+        <button type="submit" id="graph" name="submit_button" value="Submit">Submit Form</button> <br>
+    </form><br><br>
+    <a href="{{ url_for('home') }}">Go back to Prediction</a>
+</body>
+
+</html>
+
+

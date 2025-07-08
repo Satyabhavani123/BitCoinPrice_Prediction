@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    
+    <!-- Internal CSS -->
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f7ff; /* Light blue background */
+            background-image: url("{{ url_for('static', filename='bit5.jpg') }}");
+            background-size: cover;
+            background-attachment: fixed; /* Keeps the background image fixed */
+            line-height: 1.5;
+        }
+        
+        /* Container styling */
+        .container {
+            max-width: 800px;
+            height: auto; /* Adjusts height based on content */
+            margin: 18px auto; /* Reduced top and bottom margin */
+            padding: 20px; /* Adjusted padding */
+            background-color: #d1e9ff; /* Soft blue background for the container */
+            border-radius: 12px; /* Soft rounded corners */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid #cccccc;
+        }
+        
+        /* Form elements styling */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333; /* Darker text for contrast */
+        }
+        
+        /* Adjust input and textarea styles */
+        input, textarea {
+            width: 100%;
+            max-width: 500px; /* Limit width to 500px */
+            padding: 10px;
+            border: 1px solid #b3d9ff; /* Light blue border */
+            border-radius: 4px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: #66c2ff; /* Highlighted border on focus */
+        }
+        
+        /* Submit button styling */
+        button {
+            padding: 10px 20px;
+            background-color: #33a3ff; /* Vivid blue button */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #1a8cff; /* Darker blue on hover */
+        }
+        
+        /* Contact information styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        
+        /* Styling for unique format in <ul> */
+        li {
+            margin: 10px 0;
+            display: flex; /* Use flex layout for the list items */
+            align-items: center;
+        }
+        
+        /* Icons for contact info */
+        li:before {
+            content: "•";
+            font-size: 20px;
+            color: #33a3ff;
+            margin-right: 10px; /* Space between icon and text */
+        }
+        
+        /* Links */
+        a {
+            color: #33a3ff; /* Same color as button */
+        }
+        
+        a:hover {
+            color: #1a8cff; /* Darker blue on hover */
+            text-decoration: underline;
+        }
+        
+        /* Intro text */
+        .intro {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        /* Highlighted labels */
+        .highlight {
+            color: #ff6600; /* Highlighted color for emphasis */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p class="intro">We're here to help! Whether you have questions, comments, or feedback, we'd love to hear from you. Please feel free to reach out using the form below or the contact information provided.</p>
+        
+        <form action="/contact" method="POST" onsubmit="return handleFormSubmit()">
+            <label for="name" class="highlight">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required aria-label="Name">
+            
+            <label for="email" class="highlight">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required aria-label="Email">
+            
+            <label for="message" class="highlight">Your Message:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Type your message here" required aria-label="Message"></textarea>
+            
+            <button type="submit">Send Your Message</button>
+        </form>
+        
+        <p>You can also reach us at:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:support@yourapp.com">support@yourapp.com</a></li>
+            <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+            <li><strong>Address:</strong> 123 App St., App City, AP 12345</li>
+        </ul>
+    </div>
+    <script>
+        function handleFormSubmit() {
+            // This function will be called when the form is submitted
+            // Display an alert box
+            alert("Thank you! Your message has been sent.");
+            // Return true to allow the form submission to proceed
+            return true;
+        }
+    </script>
+</body>
+
+</html>

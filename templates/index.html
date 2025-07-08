@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bitcoin Price Prediction</title>
+    <!-- Include Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar styles */
+        nav {
+            background-color: #1a1a1a;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navbar links */
+        nav a {
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+
+        /* Logo styling */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            color:blue;
+        }
+
+        /* Coin symbol styling */
+        .coin-symbol {
+            margin-right: 15px;
+            color: #ffd902; /* Gold color */
+            font-size: 1.5rem;
+        }
+
+      
+
+        /* Button styling */
+        .cta-button {
+           
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+       
+          /* Hero section */
+          .hero {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background-image: url("{{ url_for('static', filename='bit5.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Hero content */
+        .hero-content {
+            max-width: 50%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        /* Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3e8e41;
+        }
+
+        /* Features section */
+        .features {
+            padding: 40px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .features h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        /* Style for feature cards */
+        .feature-card {
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Hover effect on feature cards */
+        .feature-card:hover {
+            transform: scale(1.05);
+            background-color: #e0f7fa; /* Light blue background color on hover */
+        }
+
+        /* Grid layout for feature cards */
+        .features-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .feature-card p {
+            color: #333;
+        }
+
+        /* Updated styles for feature cards */
+        /* Unique background colors for feature cards */
+        .feature-card:nth-child(1) {
+            background-color: #ffccbc; /* Soft coral color */
+        }
+
+        .feature-card:nth-child(2) {
+            background-color: #c8e6c9; /* Mint green color */
+        }
+
+        .feature-card:nth-child(3) {
+            background-color: #bbdefb; /* Light blue color */
+        }
+
+        .feature-card:nth-child(4) {
+            background-color: #e0e0e0; /* Light gray color */
+        }
+
+        .feature-card:nth-child(5) {
+            background-color: #f3e5f5; /* Lavender color */
+        }
+
+        .feature-card:nth-child(6) {
+            background-color: #fdd835; /* Yellow color */
+        }
+
+        /* Footer styles */
+        footer {
+            background: linear-gradient(45deg, #1a1a1a, #4a4a4a); /* Gradient background */
+            color: #f0f0f0;
+            padding: 2rem; /* Increased padding */
+            text-align: center;
+        }
+
+        footer .footer-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 0 15px; /* Increased margin */
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover {
+            color: #4CAF50;
+        }
+
+        footer .social-media a {
+            color: #f0f0f0;
+            text-decoration: none;
+            margin: 0 15px; /* Increased margin */
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-media a:hover {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <!-- Create the logo with a coin symbol and multiple dark colors -->
+        <a href="#" class="logo">
+            <i class="fas fa-coins coin-symbol"></i>
+            <span>CrypticCoin</span>
+        </a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            
+            <a href="{{ url_for('about') }}">About</a></li>
+            <a href="{{ url_for('contact') }}">Contact</a></li>
+            <a href="{{ url_for('login') }}" class="cta-button">Login/Signup</a>        
+        </div>
+    </nav>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Unlock Financial Freedom</h1>
+        <p>Join the world's fastest-growing Bitcoin community and stay ahead with cutting-edge insights and predictions.</p>
+        <a href="/signup" class="cta-button">Start Your Journey</a>
+    </div>
+</section>
+     <!-- Features Section -->
+     <section class="features" id="features">
+        <h2>Why Choose BitcoinPredict?</h2>
+        <div class="features-cards">
+            <!-- Feature Card 1 -->
+            <div class="feature-card">
+                <h3>Real-Time Updates</h3>
+                <p>Stay informed with real-time data on Bitcoin prices and market trends for precise decision-making.</p>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div class="feature-card">
+                <h3>Expert Analysis</h3>
+                <p>Access insights from industry experts and tap into their years of experience for smarter investments.</p>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div class="feature-card">
+                <h3>Intuitive Tools</h3>
+                <p>Navigate market trends with ease using our user-friendly tools tailored for all levels of investors.</p>
+            </div>
+
+            <!-- Feature Card 4 -->
+            <div class="feature-card">
+                <h3>Advanced Predictive Models</h3>
+                <p>Leverage cutting-edge algorithms for accurate Bitcoin forecasts and strategic investment choices.</p>
+            </div>
+
+            <!-- Feature Card 5 -->
+            <div class="feature-card">
+                <h3>Educational Resources</h3>
+                <p>Expand your crypto knowledge with tutorials, guides, and articles designed to empower your journey.</p>
+            </div>
+
+            <!-- Feature Card 6 -->
+            <div class="feature-card">
+                <h3>Dedicated Support</h3>
+                <p>Our responsive customer support is here to address any queries and ensure a seamless experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

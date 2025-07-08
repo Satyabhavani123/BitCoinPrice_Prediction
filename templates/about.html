@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <style>
+        /* General styles */
+        body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("{{url_for('static', filename='bit1.jpg')}}"); /* Background image */
+        background-size: cover; /* Cover the entire screen */
+        background-attachment: fixed; /* Keep background fixed while scrolling */
+        background-position: center; /* Center the image */
+        color: #333;
+    }
+        /* Header section styles */
+        header {
+            background-color: #3b5998;
+            color: white;
+            padding: 15px 20px; /* Reduced padding */
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid #2e4a62;
+        }
+        /* Main content styles */
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Gap between sections */
+            
+           
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+            margin: 20px auto; /* Centered within body */
+            width: 80%; /* Reduced width to 80% */
+        }
+
+        /* Section and heading styles */
+        section {
+            padding: 20px;
+            background-color: #e2f1ff; /* Light blue background */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            width: 300px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0; /* Initial opacity */
+            animation: rollIn 1s forwards;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #6592f2; /* Matching header color */
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Link styles */
+        a {
+            color: #3b5998;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form button styles */
+        button {
+            background-color: #3b5998;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2e4a62;
+        }
+
+        /* Animation keyframes for roll in effect */
+        @keyframes rollIn {
+            0% {
+                opacity: 0;
+                transform: rotateY(180deg);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateY(0);
+            }
+        }
+
+        /* Apply animation delay to each section */
+        section:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        section:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+
+        section:nth-child(4) {
+            animation-delay: 2s;
+        }
+
+        section:nth-child(5) {
+            animation-delay: 2.5s;
+        }
+
+        section:nth-child(6) {
+            animation-delay: 3s;
+        }
+
+        section:nth-child(7) {
+            animation-delay: 3.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/about" method="POST"></form>
+    <header>
+        <h1>About Our Application</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Introduction</h2>
+            <p>Our application provides users with accurate predictions for Bitcoin prices based on advanced machine learning models. We aim to offer reliable insights to help users make informed decisions in the world of cryptocurrency.</p>
+        </section>
+        <section>
+            <h2>Mission and Vision</h2>
+            <p>Our mission is to empower users with data-driven insights for cryptocurrency trading and investment. Our vision is to become a leading platform for cryptocurrency predictions and analytics.</p>
+        </section>
+        <section>
+            <h2>History</h2>
+            <p>The application was launched in 2020 and has since grown to serve a large user base. We continuously improve our models and data sources to provide the most accurate predictions possible.</p>
+        </section>
+        <section>
+            <h2>The Team</h2>
+            <p>Our team consists of experienced data scientists, software engineers, and financial analysts dedicated to providing high-quality predictions and insights.</p>
+        </section>
+        <section>
+            <h2>Technologies and Data Sources</h2>
+            <p>We use state-of-the-art technologies such as Flask for our backend and machine learning libraries for our prediction models. Our data sources include reputable financial institutions and market data providers.</p>
+        </section>
+        <section>
+            <h2>Acknowledgments</h2>
+            <p>We would like to thank all our partners, collaborators, and sponsors who have supported us throughout our journey.</p>
+        </section>
+        <section>
+            <h2>Contact Information</h2>
+            <p>For any inquiries or feedback, please contact us at <a href="mailto:youremail@example.com">support@yourapp.com</a>.</p>
+        </section>
+    </main>
+</body>
+</html>
+
+
+

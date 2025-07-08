@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent background image overflow */
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Ensure background is behind other content */
+        }
+
+        .container {
+            max-width: 400px;
+            margin-top: -200px; /* Initially position above the viewport */
+            margin-left: 30px;
+            padding: 20px;
+            background-color: #f9f9f997; /* Added background color */
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Ensure borders stay within container */
+            overflow: hidden; /* Hide overflow of border animations */
+            animation: dropIn 1s ease-out forwards; /* Drop in animation */
+        }
+
+        @keyframes dropIn {
+            0% {
+                margin-top: -200px; /* Start position */
+            }
+            100% {
+                margin-top: 100px; /* End position */
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #f9f9f9; /* Added background color */
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-bottom: 2px solid #007bff;
+            outline: none;
+        }
+
+        .input-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-group button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 15px;
+            text-align: center;
+            color: #555;
+        }
+
+        p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img class="background" src="{{url_for('static', filename='bit.jpg')}}" alt="Background Image">
+    <div class="container">
+        <form action="{{ url_for('signup') }}" method="POST">
+            <h2>Sign Up</h2>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <button type="submit">Sign Up</button>
+            </div>
+            <p>Already have an account? <a href="login">Log in</a></p>
+        </form>
+    </div>
+</body>
+</html>
+
+

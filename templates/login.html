@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{{url_for('static', filename='bit1.jpg')}}"); /* Background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px; /* Add some padding */
+        }
+
+        .container {
+            background-color: #313131; /* Semi-transparent background */
+            border-radius: 10px;
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 1s forwards; /* Slide in animation */
+        }
+
+        @keyframes slideIn {
+            0% {
+                left: -90%;
+            }
+            100% {
+                left: 45%;
+                transform: translateX(-45%);
+            }
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid #cccccc;
+            background-color: transparent;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: border-bottom-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-bottom-color: #4CAF50;
+        }
+
+        input[type="submit"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            color: #ffffff;
+        }
+
+        .signup-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <input type="text" placeholder="Email address" id="email" name="email" required>
+            <input type="password" placeholder="Password" id="password" name="password" required>
+            <input type="submit" value="Login">
+        </form>
+        <div class="signup-link">Don't have an account? <a href="/signup">Sign Up</a></div>
+    </div>
+</body>
+</html>
