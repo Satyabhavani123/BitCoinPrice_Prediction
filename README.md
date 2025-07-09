@@ -18,4 +18,8 @@ A Flask-based web application that predicts Bitcoin prices using machine learnin
 ----> Visualized real-time trends and predictions using dynamic charts
 
 ----> User-friendly interface for easy interaction and result interpretation
-![image](https://github.com/user-attachments/assets/481b10a1-e455-4217-b6a3-cd0bc31fa148)
+
+![image](https://github.com/user-attachments/assets/f6302397-528c-4b9b-9894-f0c11c18c86d)
+
+
+
